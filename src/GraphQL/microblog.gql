@@ -1,0 +1,16 @@
+type User {
+  nickName: String!
+  micros: [Micro!]! @relation(name: "text")
+  following: [String]
+}
+
+type Micro {
+  author: User! @realtion(name: "nickName")
+  text: String!
+  timestamp: Time!
+}
+
+type Query {
+  allUsers: [User!]!
+  allMicros: [Micro!]!
+}
